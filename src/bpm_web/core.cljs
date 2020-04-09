@@ -3,11 +3,40 @@
       [reagent.core :as r]
       [reagent.dom :as d]))
 
+
+(def samples 8)
+;; -------------------------
+;; State
+
+(defonce times (r/atom (vec (repeat samples 0))))
+
+(defn handle-click! [n]
+  (swap! times (comp vec (partial take-last samples) conj) (system-time)))
+
+;; -------------------------
+;; components
+
+(defn button [n]
+  ^{:key n} [:button
+             {:on-click #(handle-click! n)}
+             n])
+
+(defn bpm [ts]
+  (let [c (dec (count ts))
+        interval (- (last ts) (first ts))
+        tpb (/ interval c)]
+    (* 60000 (/ 1 tpb))))
+
+(defn round [p x]
+  (/ (int (+ 0.5 (* (Math/pow 10 p) x))) (Math/pow 10 p)))
+
 ;; -------------------------
 ;; Views
 
 (defn home-page []
-  [:div [:h2 "Welcome to Reagent"]])
+  [:div [:h1 "BPM"]
+   [:div (->> @times bpm (round 0))]
+   (button "Tap")])
 
 ;; -------------------------
 ;; Initialize app
