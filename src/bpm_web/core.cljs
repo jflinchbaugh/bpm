@@ -17,7 +17,7 @@
 ;; components
 
 (defn button [n]
-  ^{:key n} [:button
+  ^{:key "button-1"} [:button
              {:on-click #(handle-click! n)}
              n])
 
@@ -34,9 +34,8 @@
 ;; Views
 
 (defn home-page []
-  [:div [:h1 "BPM"]
-   [:div.display (->> @times bpm (round 0))]
-   (button "Tap")])
+  [:div 
+   (button (->> @times bpm (round 0)))])
 
 ;; -------------------------
 ;; Initialize app

@@ -1,12 +1,10 @@
 body {
   font-family: 'Helvetica Neue', Verdana, Helvetica, Arial, sans-serif;
-  max-width: 600px;
-  margin: 0 auto;
-  padding-top: 72px;
   -webkit-font-smoothing: antialiased;
-  font-size: 1.125em;
+  font-size: 30pt;
   color: #333;
-  line-height: 1.5em;
+  max-width: 600px;
+  text-align: center;
 }
 
 h1, h2, h3 {
@@ -31,4 +29,12 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+button {
+    margin: auto;
+    padding: 2ex;
+    font-size: 100%;
+    width: 80vw;
+    height: 80vh;
 }
