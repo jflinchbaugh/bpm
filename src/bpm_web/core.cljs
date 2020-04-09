@@ -4,14 +4,14 @@
       [reagent.dom :as d]))
 
 
-(def samples 8)
+(def samples 4)
 ;; -------------------------
 ;; State
 
-(defonce times (r/atom (vec (repeat samples 0))))
+(defonce times (r/atom (vec (repeat (inc samples) 0))))
 
 (defn handle-click! [n]
-  (swap! times (comp vec (partial take-last samples) conj) (system-time)))
+  (swap! times (comp vec (partial take-last (inc samples)) conj) (system-time)))
 
 ;; -------------------------
 ;; components
@@ -35,7 +35,7 @@
 
 (defn home-page []
   [:div [:h1 "BPM"]
-   [:div (->> @times bpm (round 0))]
+   [:div.display (->> @times bpm (round 0))]
    (button "Tap")])
 
 ;; -------------------------
