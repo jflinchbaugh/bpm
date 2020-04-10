@@ -3,15 +3,19 @@
       [reagent.core :as r]
       [reagent.dom :as d]))
 
-
-(def samples 4)
+(def samples 8)
+(def timeout 5000)
 ;; -------------------------
 ;; State
 
-(defonce times (r/atom (vec (repeat (inc samples) 0))))
+(defonce times (r/atom [0]))
 
 (defn handle-click! [n]
-  (swap! times (comp vec (partial take-last (inc samples)) conj) (system-time)))
+  (let [now (system-time)
+        last-time (last @times)]
+    (if (and (not (zero? last-time)) (< timeout (- now last-time)))
+      (reset! times [now])
+      (swap! times (comp vec (partial take-last (inc samples)) conj) now))))
 
 ;; -------------------------
 ;; components
