@@ -8,12 +8,12 @@
 ;; -------------------------
 ;; State
 
-(defonce times (r/atom [0]))
+(defonce times (r/atom []))
 
 (defn handle-click! [n]
   (let [now (system-time)
         last-time (last @times)]
-    (if (and (not (zero? last-time)) (< timeout (- now last-time)))
+    (if (< timeout (- now last-time))
       (reset! times [now])
       (swap! times (comp vec (partial take-last (inc samples)) conj) now))))
 
