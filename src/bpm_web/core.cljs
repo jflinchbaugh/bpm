@@ -21,9 +21,9 @@
 ;; components
 
 (defn button [n]
-  ^{:key "button-1"} [:button
+  ^{:key "button-1"} [:div.button
              {:on-click #(handle-click! n)}
-             n])
+                      [:span n]])
 
 (defn bpm [ts]
   (let [c (dec (count ts))
