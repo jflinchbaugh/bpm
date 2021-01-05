@@ -21,7 +21,8 @@
 ;; components
 
 (defn button [n]
-  ^{:key "button-1"} [:div.button
+  [:div.button
+   ^{:key "button-1"}
              {:on-click #(handle-click! n)}
                       [:span n]])
 
@@ -39,7 +40,7 @@
 
 (defn home-page []
   [:div 
-   (button (->> @times bpm (round 0)))])
+   [button (->> @times bpm (round 0))]])
 
 ;; -------------------------
 ;; Initialize app
