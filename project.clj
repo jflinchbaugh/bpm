@@ -7,11 +7,11 @@
   :dependencies [[org.clojure/clojure "1.11.1"]
                  [org.clojure/clojurescript "1.11.60"]
                  [reagent "1.1.1"]
-                 [cljsjs/react "18.2.0-0"]
-                 [cljsjs/react-dom "18.2.0-0"]
+                 [cljsjs/react "18.2.0-1"]
+                 [cljsjs/react-dom "18.2.0-1"]
 ]
 
-  :plugins [[lein-cljsbuild "1.1.7"]
+  :plugins [[lein-cljsbuild "1.1.8"]
             [lein-figwheel "0.5.20"]]
 
   :clean-targets ^{:protect false}
