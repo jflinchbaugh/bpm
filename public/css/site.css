@@ -34,20 +34,29 @@ a:hover {
 }
 
 .button {
-    background-color: black;
-    border: solid 1px white;
-    border-radius: 20px;
-    margin: auto;
-    margin-top: 1vmin;
-    font-size: 30vmin;
-    width: 90vw;
-    height: 90vh;
+  background-color: black;
+  border: solid 1px white;
+  border-radius: 20px;
+  margin: auto;
+  margin-top: 1vmin;
+  font-size: 30vmin;
+  width: 90vw;
+  height: 90vh;
 }
 
-.button span {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+.button .one {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.button .half {
+  font-size: 10vmin;
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  -ms-transform: translate(-75%, -50%);
+  transform: translate(-75%, -50%);
 }

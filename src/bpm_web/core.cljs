@@ -20,9 +20,14 @@
 ;; -------------------------
 ;; components
 
+(defn round [p x]
+  (/ (int (+ 0.5 (* (Math/pow 10 p) x))) (Math/pow 10 p)))
+
 (defn button [n]
   ^{:key "button-1"}
-  [:div.button {:on-click #(handle-click! n)} [:span n]])
+  [:div.button {:on-click #(handle-click! n)}
+   [:div.one (round 0 n)]
+   [:div.half (round 0 (/ n 2))]])
 
 (defn bpm [ts]
   (let [c (dec (count ts))
@@ -30,15 +35,12 @@
         tpb (/ interval c)]
     (* 60000 (/ 1 tpb))))
 
-(defn round [p x]
-  (/ (int (+ 0.5 (* (Math/pow 10 p) x))) (Math/pow 10 p)))
-
 ;; -------------------------
 ;; Views
 
 (defn home-page []
-  [:div 
-   [button (->> @times bpm (round 0))]])
+  [:div
+   [button (->> @times bpm)]])
 
 ;; -------------------------
 ;; Initialize app
