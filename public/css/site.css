@@ -55,8 +55,8 @@ a:hover {
 .button .half {
   font-size: 10vmin;
   position: absolute;
-  top: 75%;
+  top: 70%;
   left: 50%;
-  -ms-transform: translate(-75%, -50%);
-  transform: translate(-75%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
